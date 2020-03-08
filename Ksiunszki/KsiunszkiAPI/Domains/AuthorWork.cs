@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace KsiunszkiAPI.Models
+namespace KsiunszkiAPI.Domains
 {
-    public class AuthorGenre
+    public class AuthorWork
     {
         [Key, Column(Order = 1)]
         public int AuthorId { get; set; }
         [Key, Column(Order = 2)]
-        public int GenreId { get; set; }
+        public int WorkId { get; set; }
         public virtual Author Author { get; set; }
-        public virtual Genre Genre { get; set; }
+        public virtual Work Work { get; set; }
     }
 }

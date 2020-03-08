@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KsiunszkiAPI.Models
+namespace KsiunszkiAPI.Controllers.v1.Requests
 {
-    public class Author
+    public class AuthorRequest
     {
-        [Key]
-        public int AuthorId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Pseudonym { get; set; }
@@ -20,7 +16,5 @@ namespace KsiunszkiAPI.Models
         public string DeathPlace { get; set; }
         public string Website { get; set; }
         public string Twitter { get; set; }
-        public virtual ICollection<AuthorGenre> AuthorGenres { get; set; }
-        public virtual ICollection<AuthorWork> AuthorWorks { get; set; }
     }
 }
