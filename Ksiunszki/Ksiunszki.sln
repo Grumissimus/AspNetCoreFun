@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KsiunszkiAuth", "KsiunszkiAuth\KsiunszkiAuth.csproj", "{9606839C-EDD6-4D04-B57A-C0EC7BAF875C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KsiunszkiAPI", "KsiunszkiAPI\KsiunszkiAPI.csproj", "{5ADC48DE-80BA-459B-94D3-A568D8953D3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9606839C-EDD6-4D04-B57A-C0EC7BAF875C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9606839C-EDD6-4D04-B57A-C0EC7BAF875C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9606839C-EDD6-4D04-B57A-C0EC7BAF875C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ADC48DE-80BA-459B-94D3-A568D8953D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ADC48DE-80BA-459B-94D3-A568D8953D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ADC48DE-80BA-459B-94D3-A568D8953D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ADC48DE-80BA-459B-94D3-A568D8953D3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
