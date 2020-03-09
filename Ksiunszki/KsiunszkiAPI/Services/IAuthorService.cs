@@ -8,7 +8,9 @@ using KsiunszkiAPI.Controllers.v1.Requests;
 namespace KsiunszkiAPI.Services
 {
     interface IAuthorService
-    {   
+    {
         public List<Author> GetAuthors(AuthorRequest authorGetRequest);
+        public Author GetAuthorById(int id);
     }
+    
 }

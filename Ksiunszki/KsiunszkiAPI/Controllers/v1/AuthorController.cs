@@ -10,7 +10,11 @@ namespace KsiunszkiAPI.Controllers
 {
     public class AuthorController : Controller
     {
-        private List<Author> _authors;
+        public AuthorController()
+        {
+
+        }
+
         public IActionResult Index()
         {
             return Ok();
@@ -19,7 +23,7 @@ namespace KsiunszkiAPI.Controllers
         [HttpGet(ApiRoutes.Author.ReadAll)]
         public IActionResult ReadAll()
         {
-            return Ok(_authors);
+            return Ok(new{ key = "value" });
         }
     }
 }
