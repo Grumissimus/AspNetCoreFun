@@ -14,6 +14,7 @@ using KsiunszkiAPI.Options;
 using KsiunszkiAPI.Contracts;
 using KsiunszkiAPI.Domains;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace KsiunszkiAPI
 {
@@ -31,11 +32,16 @@ namespace KsiunszkiAPI
             services.AddControllers();
             services.AddDbContext<ApiDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            
             services.AddSwaggerGen( x => x.SwaggerDoc(
                 ApiRoutes.Version, 
                 new Microsoft.OpenApi.Models.OpenApiInfo{Title = "Ksiunszki Resource API", Version = ApiRoutes.Version}
             ) );
+
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.IgnoreNullValues = true;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

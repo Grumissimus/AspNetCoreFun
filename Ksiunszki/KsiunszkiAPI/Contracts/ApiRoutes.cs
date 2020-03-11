@@ -13,7 +13,8 @@ namespace KsiunszkiAPI.Contracts
 
         public static class Author
         {
-            public const string ReadAll = Base + "/authors";
+            public const string Get = Base + "/authors";
+            public const string GetById = Base + "/authors/{id}";
             public const string Create = Base + "/authors";
             public const string Update = Base + "/authors/{id}";
             public const string Delete = Base + "/authors/{id}";

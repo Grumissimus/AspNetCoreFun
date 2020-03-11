@@ -10,6 +10,6 @@ namespace KsiunszkiAPI.Domains
         [Required]
         public string Title { get; set; }
         public virtual ICollection<AuthorWork> AuthorWorks { get; set; }
-        public virtual ICollection<WorkGenres> WorkGenres { get; set; }
+        public virtual ICollection<WorkGenre> WorkGenres { get; set; }
     }
 }

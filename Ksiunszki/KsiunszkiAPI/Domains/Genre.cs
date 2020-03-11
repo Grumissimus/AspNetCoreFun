@@ -11,8 +11,10 @@ namespace KsiunszkiAPI.Domains
     {
         [Key]
         public int GenreId { get; set; }
+        [Required]
         public string GenreName { get; set; }
         public string GenreDescription { get; set; }
-        public virtual ICollection<AuthorGenre> AuthorGenres { get; set; } 
+        public virtual ICollection<AuthorGenre> AuthorGenres { get; set; }
+        public virtual ICollection<WorkGenre> WorkGenres { get; set; }
     }
 }

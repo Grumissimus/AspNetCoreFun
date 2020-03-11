@@ -10,9 +10,13 @@ namespace KsiunszkiAPI.Controllers.v1.Requests
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Pseudonym { get; set; }
-        public DateTime BirthDate { get; set; }
+        public int BirthYear { get; set; }
+        public int BirthMonth { get; set; }
+        public int BirthDay { get; set; }
         public string BirthPlace { get; set; }
-        public DateTime DeathDate { get; set; }
+        public int DeathYear { get; set; }
+        public int DeathMonth { get; set; }
+        public int DeathDay { get; set; }
         public string DeathPlace { get; set; }
         public string Website { get; set; }
         public string Twitter { get; set; }
