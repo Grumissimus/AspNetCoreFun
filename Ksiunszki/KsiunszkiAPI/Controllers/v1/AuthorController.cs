@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using KsiunszkiAPI.Domains;
 using KsiunszkiAPI.Contracts;
-using KsiunszkiAPI.Controllers.v1.Request;
+using KsiunszkiAPI.Controllers.v1.Requests;
+using KsiunszkiAPI.Controllers.v1.Responses;
 using Newtonsoft.Json;
 
 namespace KsiunszkiAPI.Controllers
@@ -37,6 +38,12 @@ namespace KsiunszkiAPI.Controllers
             );
 
             return Ok(authorObj);
+        }
+
+        [HttpGet(ApiRoutes.Author.Get)]
+        public IActionResult GetAuthors([FromQuery] AuthorRequest req)
+        {
+            return Ok(req);
         }
     }
 }
