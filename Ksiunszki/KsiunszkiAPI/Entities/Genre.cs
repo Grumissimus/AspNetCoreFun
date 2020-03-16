@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace KsiunszkiAPI.Domains
+namespace KsiunszkiAPI.Entities
 {
     public class Genre
     {
@@ -14,7 +14,6 @@ namespace KsiunszkiAPI.Domains
         [Required]
         public string GenreName { get; set; }
         public string GenreDescription { get; set; }
-        public virtual ICollection<AuthorGenre> AuthorGenres { get; set; }
-        public virtual ICollection<WorkGenre> WorkGenres { get; set; }
+        public virtual Genre ParentGenre { get; set; }
     }
 }
