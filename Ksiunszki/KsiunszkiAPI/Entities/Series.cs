@@ -9,9 +9,9 @@ namespace KsiunszkiAPI.Entities
     public class Series
     {
         [Key]
-        public int SeriesId { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string SeriesName { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public virtual ICollection<BookSeries> BookSeries {get; set;}
     }

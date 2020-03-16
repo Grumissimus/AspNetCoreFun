@@ -12,9 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using KsiunszkiAPI.Options;
 using KsiunszkiAPI.Contracts;
-using KsiunszkiAPI.Domains;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+using KsiunszkiAPI.Entities;
 
 namespace KsiunszkiAPI
 {
@@ -30,7 +29,7 @@ namespace KsiunszkiAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ApiDbContext>(options =>
+            services.AddDbContext<KsiunszkiContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
             services.AddSwaggerGen( x => x.SwaggerDoc(

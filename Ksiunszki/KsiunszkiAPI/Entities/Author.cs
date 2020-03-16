@@ -9,9 +9,7 @@ namespace KsiunszkiAPI.Entities
 {
     public class Author
     {
-        [Key]
-        public int AuthorId { get; set; }
-        [Required]
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Aliases { get; set; }
         public DateTime BirthDay  {get; set;}
