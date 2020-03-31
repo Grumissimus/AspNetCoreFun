@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KsiunszkiAPI", "KsiunszkiAPI\KsiunszkiAPI.csproj", "{5ADC48DE-80BA-459B-94D3-A568D8953D3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "KsiunszkiAPI\API.csproj", "{5ADC48DE-80BA-459B-94D3-A568D8953D3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
