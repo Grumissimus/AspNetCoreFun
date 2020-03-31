@@ -1,4 +1,5 @@
-﻿using KsiunszkiAPI.Entities;
+﻿using API.Requests;
+using KsiunszkiAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,16 @@ namespace KsiunszkiAPI.Services
             Context = context;
         }
 
-        public AuthorService()
-        {
-        }
-
         public Author GetById(int id)
         {
             var author = Context.Authors.FirstOrDefault(a => a.Id == id);
             return author;
+        }
+
+        public List<Author> GetByName(AuthorGetRequest authorReq)
+        {
+            var author = Context.Authors.Where( a => a.Name.Contains(authorReq.Name) );
+            return author.ToList();
         }
 
         public void Insert(Author author)
