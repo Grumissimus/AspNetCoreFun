@@ -11,10 +11,6 @@ namespace KsiunszkiAPI.Entities.Configurations
 
             builder.Property(a => a.Name).IsRequired();
 
-            builder.Property(a => a.BirthDay).HasColumnType("Date").HasDefaultValue(null);
-
-            builder.Property(a => a.DeathDay).HasColumnType("Date").HasDefaultValue(null);
-
             builder.ToTable("Authors");
         }
     }

@@ -21,7 +21,8 @@ namespace KsiunszkiAPI.Services
 
         public Author GetById(int id)
         {
-            return Context.Authors.FirstOrDefault(a => a.Id == id);
+            var author = Context.Authors.FirstOrDefault(a => a.Id == id);
+            return author;
         }
 
         public void Insert(Author author)

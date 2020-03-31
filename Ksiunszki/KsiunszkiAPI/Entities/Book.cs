@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KsiunszkiAPI.Entities
 {
@@ -8,6 +10,8 @@ namespace KsiunszkiAPI.Entities
         public int Id { get; set; }
         public string Title { get; set; }
         public string ISBN { get; set; }
+        [DataType(DataType.Date)]
+        [Column(TypeName = "Date")]
         public DateTime? ReleaseDate { get; set; }
         public string OriginalTitle { get; set; }
         public int NumberOfPages { get; set; }

@@ -4,14 +4,16 @@ using KsiunszkiAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KsiunszkiAPI.Migrations
 {
     [DbContext(typeof(KsiunszkiContext))]
-    partial class KsiunszkiContextModelSnapshot : ModelSnapshot
+    [Migration("20200331200517_DateFix")]
+    partial class DateFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

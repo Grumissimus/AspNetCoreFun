@@ -4,12 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using KsiunszkiAPI.Options;
 using Microsoft.EntityFrameworkCore;
 using KsiunszkiAPI.Entities;
@@ -32,7 +29,6 @@ namespace KsiunszkiAPI
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
 
-
             services.AddScoped<IAuthorService,AuthorService>();
 
             services.AddSwaggerGen(x => x.SwaggerDoc(
@@ -41,9 +37,10 @@ namespace KsiunszkiAPI
            ));
 
 
-            services.AddMvc().AddJsonOptions(options =>
+            services.AddMvc().AddNewtonsoftJson(options =>
             {
-                options.JsonSerializerOptions.IgnoreNullValues = true;
+                options.SerializerSettings.DateFormatString = "yyyy-MM-dd";
+                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             });
         }
 
