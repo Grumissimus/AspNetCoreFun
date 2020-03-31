@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace KsiunszkiAPI.Entities.Configurations
 {
@@ -23,7 +19,8 @@ namespace KsiunszkiAPI.Entities.Configurations
                 .HasForeignKey(bs => bs.SeriesId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(bs => bs.Order).IsRequired();
+            builder.Property(bs => bs.Order)
+                .IsRequired();
 
             builder.ToTable("BookSeries");
         }

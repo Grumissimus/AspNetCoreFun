@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace KsiunszkiAPI.Entities.Configurations
 {
@@ -16,6 +12,15 @@ namespace KsiunszkiAPI.Entities.Configurations
             builder.HasAlternateKey(book => book.ISBN);
 
             builder.Property(book => book.Title).IsRequired();
+
+            builder.HasOne(book => book.Publisher)
+                .WithMany(publisher => publisher.Books)
+                .HasForeignKey(book => book.PublisherId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(book => book.Parent)
+                .WithMany()
+                .HasForeignKey(book => book.ParentId);
 
             builder.ToTable("Books");
         }

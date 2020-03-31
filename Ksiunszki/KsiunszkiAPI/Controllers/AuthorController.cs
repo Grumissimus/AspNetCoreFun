@@ -2,17 +2,46 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KsiunszkiAPI.Entities;
+using KsiunszkiAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using KsiunszkiAPI.Contracts;
 
 namespace KsiunszkiAPI.Controllers
 {
     public class AuthorController : Controller {
 
-        [HttpGet(ApiRoutes.Author.GetById)]
-        public IActionResult GetById()
+        private IAuthorService authorService;
+        
+        public AuthorController(IAuthorService service)
         {
-            return Ok();
+            authorService = service;
+        }
+        
+        [HttpGet("api/authors/{id}")]
+        public IActionResult Get([FromRoute] int id)
+        {
+            return Ok( authorService.GetById(id) );
+        }
+
+        [HttpPost("api/authors")]
+        public IActionResult Add([FromBody] Author author)
+        {
+            authorService.Insert(author);
+            return Ok(author);
+        }
+
+        [HttpPut("api/authors/{id}")]
+        public IActionResult Update([FromRoute] int id, [FromBody] Author author)
+        {
+            authorService.Update(id, author);
+            return Ok(author);
+        }
+
+        [HttpDelete("api/authors/{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            authorService.Delete(id);
+            return Ok(true);
         }
     }
 }

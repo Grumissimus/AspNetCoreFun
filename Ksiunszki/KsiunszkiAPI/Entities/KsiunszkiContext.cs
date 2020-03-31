@@ -1,31 +1,52 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore.Storage;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace KsiunszkiAPI.Entities
 {
-    public class KsiunszkiContext : DbContext
+    public class KsiunszkiContext : DbContext, IKsiunszkiContext
     {
         protected KsiunszkiContext()
         {
-
         }
 
-        public KsiunszkiContext(DbContextOptions options) : base(options)
+        public KsiunszkiContext(DbContextOptions<KsiunszkiContext> options) : base(options)
         {
-         
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(
-                Assembly.GetExecutingAssembly(), 
+                Assembly.GetExecutingAssembly(),
                 t => t.Namespace == "KsiunszkiAPI.Entities.Configurations"
             );
+        }
+
+        private IDbContextTransaction _transaction;
+
+        public void BeginTransaction()
+        {
+            _transaction = Database.BeginTransaction();
+        }
+
+        public void CommitChanges()
+        {
+            try
+            {
+                SaveChanges();
+                _transaction.Commit();
+            }
+            finally
+            {
+                _transaction.Dispose();
+            }
+        }
+
+        public void Rollback()
+        {
+            _transaction.Rollback();
+            _transaction.Dispose();
         }
 
         public DbSet<Author> Authors { get; set; }
@@ -35,5 +56,6 @@ namespace KsiunszkiAPI.Entities
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Series> Series { get; set; }
         public DbSet<Tag> Tags { get; set; }
+
     }
 }

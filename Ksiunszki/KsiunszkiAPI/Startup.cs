@@ -11,9 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using KsiunszkiAPI.Options;
-using KsiunszkiAPI.Contracts;
 using Microsoft.EntityFrameworkCore;
 using KsiunszkiAPI.Entities;
+using KsiunszkiAPI.Services;
 
 namespace KsiunszkiAPI
 {
@@ -28,14 +28,18 @@ namespace KsiunszkiAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
             services.AddDbContext<KsiunszkiContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
-            services.AddSwaggerGen( x => x.SwaggerDoc(
-                ApiRoutes.Version, 
-                new Microsoft.OpenApi.Models.OpenApiInfo{Title = "Ksiunszki Resource API", Version = ApiRoutes.Version}
-            ) );
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllers();
+
+
+            services.AddScoped<IAuthorService,AuthorService>();
+
+            services.AddSwaggerGen(x => x.SwaggerDoc(
+               "v1",
+               new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Ksiunszki Resource API", Version = "v1" }
+           ));
+
 
             services.AddMvc().AddJsonOptions(options =>
             {
