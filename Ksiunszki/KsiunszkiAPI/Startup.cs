@@ -11,6 +11,7 @@ using KsiunszkiAPI.Options;
 using Microsoft.EntityFrameworkCore;
 using KsiunszkiAPI.Entities;
 using KsiunszkiAPI.Services;
+using API.Services;
 
 namespace KsiunszkiAPI
 {
@@ -30,6 +31,7 @@ namespace KsiunszkiAPI
             services.AddControllers();
 
             services.AddScoped<IAuthorService,AuthorService>();
+            services.AddScoped<IBookService, BookService>();
 
             services.AddSwaggerGen(x => x.SwaggerDoc(
                "v1",

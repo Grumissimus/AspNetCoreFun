@@ -30,7 +30,7 @@ namespace KsiunszkiAPI.Controllers
             return Ok( authorService.GetByName(author) );
         }
 
-        [HttpPost("api/authors")]
+        [HttpPost("api/authors/")]
         public IActionResult Add([FromBody] Author author)
         {
             authorService.Insert(author);
