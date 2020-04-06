@@ -32,6 +32,7 @@ namespace KsiunszkiAPI
 
             services.AddScoped<IAuthorService,AuthorService>();
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IPublisherService, PublisherService>();
 
             services.AddSwaggerGen(x => x.SwaggerDoc(
                "v1",

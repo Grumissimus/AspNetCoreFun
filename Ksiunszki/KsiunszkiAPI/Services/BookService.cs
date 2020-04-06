@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace API.Services
 {
@@ -35,6 +36,38 @@ namespace API.Services
             return bookList.ToList();
         }
 
+        public List<Book> GetByAuthor(int authorId)
+        {
+            var bookList = Context.Books.Where(a => a.AuthorBooks.Any(c => c.AuthorId == authorId)).ToList();
+            return bookList;
+        }
+
+        public void AddAuthor(int bookId, int authorId)
+        {
+            var book = GetById(bookId);
+            var author = Context.Authors.FirstOrDefault(a => a.Id == authorId);
+
+            if (book == null || author == null)
+                return;
+
+            AuthorBook authorBook = new AuthorBook { Author = author, Book = book };
+            book.AuthorBooks.Add(authorBook);
+            Context.SaveChanges();
+        }
+
+        public void RemoveAuthor(int bookId, int authorId)
+        {
+            var book = GetById(bookId);
+            var author = Context.Authors.FirstOrDefault(a => a.Id == authorId);
+
+            if (book == null || author == null)
+                return;
+
+            AuthorBook authorBook = book.AuthorBooks.Single(ab => ab.AuthorId == authorId && ab.BookId == bookId);
+            book.AuthorBooks.Add(authorBook);
+            Context.SaveChanges();
+        }
+
         public void Insert(Book book)
         {
             Context.Books.Add(book);
@@ -43,12 +76,15 @@ namespace API.Services
 
         public void Update(int id, Book book)
         {
+            if (book == null)
+                return;
+
             var oldBook = GetById(id);
 
             if (oldBook == null)
                 return;
 
-            book.Id = id;
+            oldBook.Id = id;
 
             Context.Entry(oldBook).CurrentValues.SetValues(book);
             Context.SaveChanges();
