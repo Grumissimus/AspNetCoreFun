@@ -20,19 +20,19 @@ namespace KsiunszkiAPI.Controllers
         [HttpGet("api/authors/{id}")]
         public IActionResult GetById([FromRoute] int id)
         {
-            return Ok( authorService.GetById(id) );
+            return Ok( authorService.Read(id) );
         }
 
         [HttpGet("api/authors/{name}")]
         public IActionResult Get([FromRoute] string name)
         {
-            return Ok( authorService.GetByName(name) );
+            return Ok( authorService.Read(name) );
         }
 
         [HttpPost("api/authors/")]
         public IActionResult Add([FromBody] Author author)
         {
-            authorService.Insert(author);
+            authorService.Create(author);
             return Ok(author);
         }
 

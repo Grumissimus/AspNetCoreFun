@@ -1,15 +1,11 @@
-﻿using KsiunszkiAPI.Entities;
+﻿using API.Services;
+using KsiunszkiAPI.Entities;
 using System.Collections.Generic;
 
 namespace KsiunszkiAPI.Services
 {
-    public interface IAuthorService
+    public interface IAuthorService : IService<Author>
     {
-        Author GetById(int id);
-        List<Author> GetByName(string name);
-        void Insert(Author author);
-        void Update(int id, Author author);
-        void Delete(int id);
-
+        List<Author> Read(string name);
     }
 }

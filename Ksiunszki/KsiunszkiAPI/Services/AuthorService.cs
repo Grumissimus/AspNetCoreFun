@@ -15,40 +15,40 @@ namespace KsiunszkiAPI.Services
             Context = context;
         }
 
-        public Author GetById(int id)
+        public Author Read(int id)
         {
             var author = Context.Authors.FirstOrDefault(a => a.Id == id);
             return author;
         }
 
-        public List<Author> GetByName(string name)
+        public List<Author> Read(string name)
         {
             var author = Context.Authors.Where( a => a.Name.Contains(name) );
             return author.ToList();
         }
 
-        public void Insert(Author author)
+        public void Create(Author entity)
         {
-            Context.Authors.Add(author);
+            Context.Authors.Add(entity);
             Context.SaveChanges();
         }
 
-        public void Update(int id, Author author)
+        public void Update(int id, Author entity)
         {
-            var authorToBeUpdated = this.GetById(id);
+            var authorToBeUpdated = Read(id);
 
             if (authorToBeUpdated == null) 
                 return;
 
-            author.Id = id;
+            entity.Id = id;
 
-            Context.Entry(authorToBeUpdated).CurrentValues.SetValues(author);
+            Context.Entry(authorToBeUpdated).CurrentValues.SetValues(entity);
             Context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var author = GetById(id);
+            var author = Read(id);
 
             Context.Authors.Remove(author);
             Context.SaveChanges();

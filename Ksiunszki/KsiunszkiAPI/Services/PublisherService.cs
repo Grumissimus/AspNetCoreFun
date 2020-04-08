@@ -15,27 +15,27 @@ namespace KsiunszkiAPI.Services
             Context = context;
         }
 
-        public Publisher GetById(int id)
+        public Publisher Read(int id)
         {
             var publisher = Context.Publishers.FirstOrDefault(a => a.Id == id);
             return publisher;
         }
 
-        public List<Publisher> GetByName(string name)
+        public List<Publisher> Read(string name)
         {
             var author = Context.Publishers.Where( a => a.Name == name );
             return author.ToList();
         }
 
-        public void Insert(Publisher publisher)
+        public void Create(Publisher entity)
         {
-            Context.Publishers.Add(publisher);
+            Context.Publishers.Add(entity);
             Context.SaveChanges();
         }
 
         public void Update(int id, Publisher publisher)
         {
-            var oldPublisher = GetById(id);
+            var oldPublisher = Read(id);
 
             if (oldPublisher == null) 
                 return;
@@ -48,7 +48,7 @@ namespace KsiunszkiAPI.Services
 
         public void Delete(int id)
         {
-            var publisher = GetById(id);
+            var publisher = Read(id);
 
             Context.Publishers.Remove(publisher);
             Context.SaveChanges();

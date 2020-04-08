@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Controllers;
 using KsiunszkiAPI.Entities;
 using KsiunszkiAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KsiunszkiAPI.Controllers
 {
-    public class PublisherController : Controller {
+    public class PublisherController : Controller, IController<Publisher> {
 
         private IPublisherService publisherService;
         
@@ -18,21 +19,21 @@ namespace KsiunszkiAPI.Controllers
         }
         
         [HttpGet("api/publishers/{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        public IActionResult Read([FromRoute] int id)
         {
-            return Ok( publisherService.GetById(id) );
+            return Ok( publisherService.Read(id) );
         }
 
         [HttpGet("api/publishers/")]
-        public IActionResult Get([FromQuery] string name)
+        public IActionResult Read([FromQuery] string name)
         {
-            return Ok( publisherService.GetByName(name) );
+            return Ok( publisherService.Read(name) );
         }
 
         [HttpPost("api/publishers/")]
-        public IActionResult Add([FromBody] Publisher publisher)
+        public IActionResult Create([FromBody] Publisher publisher)
         {
-            publisherService.Insert(publisher);
+            publisherService.Create(publisher);
             return Ok(publisher);
         }
 
