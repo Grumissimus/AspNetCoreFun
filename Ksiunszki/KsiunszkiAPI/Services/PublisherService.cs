@@ -1,5 +1,4 @@
-﻿using API.Requests;
-using KsiunszkiAPI.Entities;
+﻿using KsiunszkiAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +8,9 @@ namespace KsiunszkiAPI.Services
 {
     public class PublisherService : IPublisherService
     {
-        private KsiunszkiContext Context { get; set; }
+        private ApiContext Context { get; set; }
 
-        public PublisherService(KsiunszkiContext context)
+        public PublisherService(ApiContext context)
         {
             Context = context;
         }

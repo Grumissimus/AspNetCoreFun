@@ -26,7 +26,7 @@ namespace KsiunszkiAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<KsiunszkiContext>(options =>
+            services.AddDbContext<ApiContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
 

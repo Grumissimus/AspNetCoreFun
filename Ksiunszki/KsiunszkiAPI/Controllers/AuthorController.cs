@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Requests;
 using KsiunszkiAPI.Entities;
 using KsiunszkiAPI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -24,10 +23,10 @@ namespace KsiunszkiAPI.Controllers
             return Ok( authorService.GetById(id) );
         }
 
-        [HttpGet("api/authors/")]
-        public IActionResult Get([FromQuery] AuthorGetRequest author)
+        [HttpGet("api/authors/{name}")]
+        public IActionResult Get([FromRoute] string name)
         {
-            return Ok( authorService.GetByName(author) );
+            return Ok( authorService.GetByName(name) );
         }
 
         [HttpPost("api/authors/")]

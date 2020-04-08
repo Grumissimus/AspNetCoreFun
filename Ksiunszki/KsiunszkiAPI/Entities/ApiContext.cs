@@ -4,13 +4,13 @@ using System.Reflection;
 
 namespace KsiunszkiAPI.Entities
 {
-    public class KsiunszkiContext : DbContext
+    public class ApiContext : DbContext
     {
-        protected KsiunszkiContext()
+        protected ApiContext()
         {
         }
 
-        public KsiunszkiContext(DbContextOptions<KsiunszkiContext> options) : base(options)
+        public ApiContext(DbContextOptions<ApiContext> options) : base(options)
         {
         }
 
@@ -30,6 +30,5 @@ namespace KsiunszkiAPI.Entities
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Series> Series { get; set; }
         public DbSet<Tag> Tags { get; set; }
-
     }
 }

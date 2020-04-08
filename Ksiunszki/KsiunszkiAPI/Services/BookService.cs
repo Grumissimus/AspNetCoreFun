@@ -3,16 +3,14 @@ using KsiunszkiAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
 
 namespace API.Services
 {
     public class BookService : IBookService
     {
-        private KsiunszkiContext Context { get; set; }
+        private ApiContext Context { get; set; }
 
-        public BookService(KsiunszkiContext context)
+        public BookService(ApiContext context)
         {
             Context = context;
         }

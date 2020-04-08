@@ -1,5 +1,4 @@
-﻿using API.Requests;
-using KsiunszkiAPI.Entities;
+﻿using KsiunszkiAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +8,9 @@ namespace KsiunszkiAPI.Services
 {
     public class AuthorService : IAuthorService
     {
-        private KsiunszkiContext Context { get; set; }
+        private ApiContext Context { get; set; }
 
-        public AuthorService(KsiunszkiContext context)
+        public AuthorService(ApiContext context)
         {
             Context = context;
         }
@@ -22,9 +21,9 @@ namespace KsiunszkiAPI.Services
             return author;
         }
 
-        public List<Author> GetByName(AuthorGetRequest authorReq)
+        public List<Author> GetByName(string name)
         {
-            var author = Context.Authors.Where( a => a.Name.Contains(authorReq.Name) );
+            var author = Context.Authors.Where( a => a.Name.Contains(name) );
             return author.ToList();
         }
 

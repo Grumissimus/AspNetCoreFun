@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Requests;
 using KsiunszkiAPI.Entities;
 using KsiunszkiAPI.Services;
 using Microsoft.AspNetCore.Mvc;
