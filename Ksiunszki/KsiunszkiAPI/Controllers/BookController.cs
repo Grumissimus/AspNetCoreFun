@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Controllers;
 using KsiunszkiAPI.Entities;
 using KsiunszkiAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KsiunszkiAPI.Controllers
 {
-    public class BookController : Controller {
+    public class BookController : Controller, IController<Book> {
 
         private IBookService bookService;
 
@@ -19,27 +20,27 @@ namespace KsiunszkiAPI.Controllers
 
         [HttpGet("api/books/{id}")]
         [HttpGet("api/books/id/{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        public IActionResult Read([FromRoute] int id)
         {
-            return Ok(bookService.GetById(id));
+            return Ok(bookService.Read(id));
         }
 
         [HttpGet("api/books/isbn/{isbn}")]
-        public IActionResult GetByISBN([FromRoute] string isbn)
+        public IActionResult ReadByISBN([FromRoute] string isbn)
         {
-            return Ok(bookService.GetByISBN(isbn));
+            return Ok(bookService.ReadByISBN(isbn));
         }
 
         [HttpGet("api/books/name/{name}")]
-        public IActionResult GetByName([FromRoute] string name)
+        public IActionResult ReadByName([FromRoute] string name)
         {
-            return Ok(bookService.GetByTitle(name) );
+            return Ok(bookService.Read(name) );
         }
 
         [HttpPost("api/books/")]
-        public IActionResult Add([FromBody] Book book)
+        public IActionResult Create([FromBody] Book book)
         {
-            bookService.Insert(book);
+            bookService.Create(book);
             return Ok(book);
         }
 

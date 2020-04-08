@@ -25,7 +25,7 @@ namespace KsiunszkiAPI.Controllers
         }
 
         [HttpGet("api/publishers/")]
-        public IActionResult Read([FromQuery] string name)
+        public IActionResult ReadByName([FromQuery] string name)
         {
             return Ok( publisherService.Read(name) );
         }

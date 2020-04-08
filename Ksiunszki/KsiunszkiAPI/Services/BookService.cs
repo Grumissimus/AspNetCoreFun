@@ -15,17 +15,17 @@ namespace API.Services
             Context = context;
         }
 
-        public Book GetById(int id)
+        public Book Read(int id)
         {
             return Context.Books.FirstOrDefault(a => a.Id == id); ;
         }
 
-        public Book GetByISBN(string ISBN)
+        public Book ReadByISBN(string ISBN)
         {
             return Context.Books.FirstOrDefault(a => a.ISBN == ISBN );
         }
 
-        public List<Book> GetByTitle(string Title)
+        public List<Book> Read(string Title)
         {
             var bookList = from m in Context.Books
                            where m.Title.Contains(Title) || m.OriginalTitle.Contains(Title)
@@ -34,15 +34,15 @@ namespace API.Services
             return bookList.ToList();
         }
 
-        public List<Book> GetByAuthor(int authorId)
+        public List<Book> ReadByAuthor(int authorId)
         {
             var bookList = Context.Books.Where(a => a.AuthorBooks.Any(c => c.AuthorId == authorId)).ToList();
             return bookList;
         }
 
-        public void AddAuthor(int bookId, int authorId)
+        public void InsertAuthor(int bookId, int authorId)
         {
-            var book = GetById(bookId);
+            var book = Read(bookId);
             var author = Context.Authors.FirstOrDefault(a => a.Id == authorId);
 
             if (book == null || author == null)
@@ -55,7 +55,7 @@ namespace API.Services
 
         public void RemoveAuthor(int bookId, int authorId)
         {
-            var book = GetById(bookId);
+            var book = Read(bookId);
             var author = Context.Authors.FirstOrDefault(a => a.Id == authorId);
 
             if (book == null || author == null)
@@ -66,7 +66,7 @@ namespace API.Services
             Context.SaveChanges();
         }
 
-        public void Insert(Book book)
+        public void Create(Book book)
         {
             Context.Books.Add(book);
             Context.SaveChanges();
@@ -77,7 +77,7 @@ namespace API.Services
             if (book == null)
                 return;
 
-            var oldBook = GetById(id);
+            var oldBook = Read(id);
 
             if (oldBook == null)
                 return;
@@ -90,7 +90,7 @@ namespace API.Services
 
         public void Delete(int id)
         {
-            var book = GetById(id);
+            var book = Read(id);
 
             Context.Books.Remove(book);
             Context.SaveChanges();
