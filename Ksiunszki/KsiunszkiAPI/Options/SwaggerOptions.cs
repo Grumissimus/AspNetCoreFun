@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KsiunszkiAPI.Options
+namespace API.Options
 {
     public class SwaggerOptions
     {

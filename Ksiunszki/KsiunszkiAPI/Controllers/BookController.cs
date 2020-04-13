@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Controllers;
-using KsiunszkiAPI.Entities;
-using KsiunszkiAPI.Services;
+using API.Models;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KsiunszkiAPI.Controllers
+namespace API.Controllers
 {
     public class BookController : Controller, IController<Book> {
 

@@ -7,13 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using KsiunszkiAPI.Options;
+using API.Options;
 using Microsoft.EntityFrameworkCore;
-using KsiunszkiAPI.Entities;
-using KsiunszkiAPI.Services;
 using API.Services;
+using API.Infrastructure;
 
-namespace KsiunszkiAPI
+namespace API
 {
     public class Startup
     {
@@ -30,13 +29,9 @@ namespace KsiunszkiAPI
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
 
-            services.AddScoped<IAuthorService,AuthorService>();
-            services.AddScoped<IBookService, BookService>();
-            services.AddScoped<IPublisherService, PublisherService>();
-
             services.AddSwaggerGen(x => x.SwaggerDoc(
                "v1",
-               new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Ksiunszki Resource API", Version = "v1" }
+               new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Boekje Resource API", Version = "v1" }
            ));
 
 

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Controllers;
-using KsiunszkiAPI.Entities;
-using KsiunszkiAPI.Services;
+using API.Models;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KsiunszkiAPI.Controllers
+namespace API.Controllers
 {
     public class AuthorController : Controller, IController<Author> {
 
@@ -21,13 +17,13 @@ namespace KsiunszkiAPI.Controllers
         [HttpGet("api/authors/{id}")]
         public IActionResult Read([FromRoute] int id)
         {
-            return Ok( authorService.Read(id) );
+            return Ok( );
         }
 
         [HttpGet("api/authors/{name}")]
         public IActionResult Read([FromRoute] string name)
         {
-            return Ok( authorService.Read(name) );
+            return Ok();
         }
 
         [HttpPost("api/authors/")]

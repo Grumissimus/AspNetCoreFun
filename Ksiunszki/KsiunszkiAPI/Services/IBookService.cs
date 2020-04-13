@@ -1,11 +1,10 @@
-﻿using API.Services;
-using KsiunszkiAPI.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Models;
 
-namespace KsiunszkiAPI.Services
+namespace API.Services
 {
     public interface IBookService : IService<Book>
     {

@@ -1,8 +1,8 @@
 ﻿using API.Services;
-using KsiunszkiAPI.Entities;
+using API.Models;
 using System.Collections.Generic;
 
-namespace KsiunszkiAPI.Services
+namespace API.Services
 {
     public interface IAuthorService : IService<Author>
     {
