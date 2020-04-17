@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using API.Models.Core.Author;
 
 namespace API.Models
 {
@@ -12,7 +13,7 @@ namespace API.Models
         public DateTime Deathday { get; set; }
         public string DeathPlace { get; set; }
         public string Nationality { get; set; }
-        public byte Gender { get; set; }
+        public Gender Gender { get; set; }
         public string Description { get; set; }
 
         public virtual ICollection<WorkAuthor> Works { get; set; }
@@ -20,5 +21,10 @@ namespace API.Models
         public virtual ICollection<FavoriteAuthor> UserFavorites { get; set; }
         public virtual ICollection<AuthorAward> Awards { get; set; }
         public virtual ICollection<AuthorTag> Tags { get; set; }
+
+        public Author()
+        {
+
+        }
     }
 }

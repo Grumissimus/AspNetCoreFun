@@ -10,7 +10,7 @@ using Microsoft.Extensions.Hosting;
 using API.Options;
 using Microsoft.EntityFrameworkCore;
 using API.Services;
-using API.Infrastructure;
+using API.Persistence;
 
 namespace API
 {
