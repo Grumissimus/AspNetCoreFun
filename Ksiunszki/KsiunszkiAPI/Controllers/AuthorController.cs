@@ -1,10 +1,13 @@
 ﻿using System;
 using API.Models;
+using API.Models.Core.Authors;
 using API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AuthorController : Controller, IController<Author> {
 
         private IAuthorService authorService;

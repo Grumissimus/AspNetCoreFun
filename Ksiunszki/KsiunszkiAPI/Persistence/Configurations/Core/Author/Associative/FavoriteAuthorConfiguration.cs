@@ -1,6 +1,7 @@
 using API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using API.Models.Core.Authors;
 
 namespace API.Persistence.Configurations
 {

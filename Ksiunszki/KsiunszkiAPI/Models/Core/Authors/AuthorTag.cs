@@ -1,4 +1,4 @@
-namespace API.Models
+namespace API.Models.Core.Authors
 {
     public class AuthorTag
     {

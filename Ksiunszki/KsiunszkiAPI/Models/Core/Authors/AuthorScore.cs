@@ -1,7 +1,8 @@
-namespace API.Models
+namespace API.Models.Core.Authors
 {
-    public class FavoriteAuthor
+    public class AuthorScore
     {
+        public int Score { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public int AuthorId { get; set; }

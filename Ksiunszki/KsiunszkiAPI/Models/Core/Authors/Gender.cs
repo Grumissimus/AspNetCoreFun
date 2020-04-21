@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Models.Core.Author
+namespace API.Models.Core.Authors
 {
     public enum Gender
     {
