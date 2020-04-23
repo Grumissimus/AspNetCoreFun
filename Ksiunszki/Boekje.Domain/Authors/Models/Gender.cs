@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Boekje.Domain.Common.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Boekje.Domain.Authors.Models
 {
-    public enum Gender
+    public enum Gender 
     {
         Unknown = 0b0,
         Male = 0b01,

@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Authors\Events\" />
-    <Folder Include="Authors\Interfaces\" />
     <Folder Include="Authors\Commands\" />
     <Folder Include="Authors\Queries\" />
   </ItemGroup>

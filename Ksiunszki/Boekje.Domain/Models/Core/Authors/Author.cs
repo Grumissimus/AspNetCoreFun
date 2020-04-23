@@ -1,3 +1,4 @@
+using Boekje.Domain.Authors.Models;
 using System;
 using System.Collections.Generic;
 
