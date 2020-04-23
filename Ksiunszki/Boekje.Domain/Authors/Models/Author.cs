@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Boekje.Domain.Common.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace API.Models.Core.Authors
+namespace Boekje.Domain.Authors.Models
 {
-    interface IAuthor
-    {   
-        public int Id { get; set; }
-        public string Name { get; set; }
+    class Author : Entity
+    {
+        public string Name { get; private set; }
+        public string Surname { get; private set; }
+        public List<string> Pseudonyms { get; private set; }
         public DateTime Birthday { get; set; }
         public string BirthPlace { get; set; }
         public DateTime Deathday { get; set; }
@@ -16,5 +17,9 @@ namespace API.Models.Core.Authors
         public string Nationality { get; set; }
         public Gender Gender { get; set; }
         public string Description { get; set; }
+
+        public Author()
+        {
+        }
     }
 }

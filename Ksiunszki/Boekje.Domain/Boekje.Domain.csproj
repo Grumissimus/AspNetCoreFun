@@ -1,14 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Commands\" />
-    <Folder Include="Events\" />
-    <Folder Include="Queries\" />
+    <Folder Include="Authors\Events\" />
+    <Folder Include="Authors\Interfaces\" />
+    <Folder Include="Authors\Commands\" />
+    <Folder Include="Authors\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Boekje.Domain.Common\Boekje.Domain.Common.csproj" />
   </ItemGroup>
 
 </Project>
