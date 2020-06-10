@@ -17,6 +17,7 @@ namespace Boekje.Domain.Models
         }
 
         public abstract void Validate(string value);
+        public static implicit operator string(ISBN i) => i.Value;
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
