@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Boekje.Common.Results;
 
-namespace Boekje.Domain.Common.Queries
+namespace Boekje.Common.Queries
 {
-    interface IQueryHandler<in TQuery, TResult> where TQuery : IQuery<TResult>
+    public interface IQueryHandler
     {
-        TResult Execute(TQuery query);
+    }
+
+    public interface IQueryHandler<in TQuery, TResult> where TQuery : IQuery<TResult>
+    {
+        IResult<TResult> Execute(TQuery query);
     }
 }

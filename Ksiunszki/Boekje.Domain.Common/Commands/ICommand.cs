@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Boekje.Domain.Common.Commands
+﻿namespace Boekje.Common.Commands
 {
     public interface ICommand
     {

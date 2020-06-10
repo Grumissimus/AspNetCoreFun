@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Boekje.Common.Results;
 
-namespace Boekje.Domain.Common.Commands
+namespace Boekje.Common.Commands
 {
     public interface ICommandHandler<in T> where T : ICommand
     {
-        void Execute(T command);
+        IResult Execute(T command);
     }
 }

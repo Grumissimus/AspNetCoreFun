@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Boekje.Domain.Common.Queries
+﻿namespace Boekje.Common.Queries
 {
-    interface IQuery<out TQuery>
+    public interface IQuery<out TQuery>
     {
     }
 }

@@ -5,13 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Authors\Events\" />
-    <Folder Include="Authors\Commands\" />
-    <Folder Include="Authors\Queries\" />
+    <Compile Remove="Models\Commands\**" />
+    <Compile Remove="Models\Events\**" />
+    <Compile Remove="Models\Queries\**" />
+    <EmbeddedResource Remove="Models\Commands\**" />
+    <EmbeddedResource Remove="Models\Events\**" />
+    <EmbeddedResource Remove="Models\Queries\**" />
+    <None Remove="Models\Commands\**" />
+    <None Remove="Models\Events\**" />
+    <None Remove="Models\Queries\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Boekje.Domain.Common\Boekje.Domain.Common.csproj" />
+    <ProjectReference Include="..\Boekje.Domain.Common\Boekje.Common.csproj" />
   </ItemGroup>
 
 </Project>

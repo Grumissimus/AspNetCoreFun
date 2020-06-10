@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Boekje.Common.Results;
 
-namespace Boekje.Domain.Common.Queries
+namespace Boekje.Common.Queries
 {
-    interface IQueryBus
+    public interface IQueryBus
     {
-        Task<TResult> Send<TQuery, TResult>(TQuery Command) where TQuery : IQuery<TResult>;
+        IResult<TResult> Send<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>;
     }
 }

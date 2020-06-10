@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Domain", "Boekje.Domain\Boekje.Domain.csproj", "{F44AAA2C-F01B-43C8-ADCC-EE7C3B523DC3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Domain.Common", "Boekje.Domain.Common\Boekje.Domain.Common.csproj", "{C2B7A558-1292-4B0B-B559-41CD33B01024}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boekje.Infrastructure", "Boekje.Infrastructure\Boekje.Infrastructure.csproj", "{1E4D1D59-E299-4459-83CA-2A7918253676}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Common", "Boekje.Domain.Common\Boekje.Common.csproj", "{C2B7A558-1292-4B0B-B559-41CD33B01024}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{C2B7A558-1292-4B0B-B559-41CD33B01024}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2B7A558-1292-4B0B-B559-41CD33B01024}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2B7A558-1292-4B0B-B559-41CD33B01024}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E4D1D59-E299-4459-83CA-2A7918253676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E4D1D59-E299-4459-83CA-2A7918253676}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E4D1D59-E299-4459-83CA-2A7918253676}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E4D1D59-E299-4459-83CA-2A7918253676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

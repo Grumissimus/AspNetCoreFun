@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="EventStorage\" />
+    <Compile Remove="EventStorage\**" />
+    <EmbeddedResource Remove="EventStorage\**" />
+    <None Remove="EventStorage\**" />
   </ItemGroup>
 
 </Project>

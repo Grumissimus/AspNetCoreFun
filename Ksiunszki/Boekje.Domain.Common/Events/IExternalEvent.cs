@@ -1,6 +1,6 @@
 ﻿namespace Boekje.Common.Events
 {
-    public interface IEvent
+    internal interface IExternalEvent : IEvent
     {
     }
 }

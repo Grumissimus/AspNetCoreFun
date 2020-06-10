@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Boekje.Domain.Common.Entities
+namespace Boekje.Common.Entities
 {
     /// <summary>
     /// A base class for value objects.
@@ -21,6 +21,7 @@ namespace Boekje.Domain.Common.Entities
 
             return GetEqualityComponents().SequenceEqual(that.GetEqualityComponents());
         }
+
         public override int GetHashCode()
         {
             return GetEqualityComponents()
@@ -32,10 +33,18 @@ namespace Boekje.Domain.Common.Entities
                 }
             });
         }
+
         public static bool operator ==(ValueObject a, ValueObject b)
         {
-            return ReferenceEquals(a, null) && ReferenceEquals(b, null) ? a.Equals(b) : false;
+            if (a is null && b is null)
+                return true;
+
+            if (a is null || b is null)
+                return false;
+
+            return a.Equals(b);
         }
+
         public static bool operator !=(ValueObject a, ValueObject b)
         {
             return !(a == b);

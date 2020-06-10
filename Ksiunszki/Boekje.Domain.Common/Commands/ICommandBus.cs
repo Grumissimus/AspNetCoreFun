@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Boekje.Common.Results;
 
-namespace Boekje.Domain.Common.Commands
+namespace Boekje.Common.Commands
 {
     public interface ICommandBus
     {
-        void Send<T>(T Command) where T : ICommand;
+        IResult Send<T>(T command) where T : ICommand;
     }
 }
