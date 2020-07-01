@@ -1,4 +1,5 @@
 ﻿using Boekje.Common.Entities;
+using Boekje.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Boekje.Domain.Models
 {
     public class ISBN10 : ISBN
     {
-        private Regex format = new Regex("^[\\dX-]+$");
+        private readonly Regex format = new Regex("^[\\dX-]+$");
 
         public ISBN10(string isbn) : base(isbn)
         {
@@ -17,23 +18,27 @@ namespace Boekje.Domain.Models
 
         public override void Validate(string value)
         {
-            if( !format.IsMatch(value) )
+            if (!format.IsMatch(value))
                 throw new Exception("The ISBN-10 contain invalid characters.");
 
             var digits = Regex.Replace(value, "-", "");
 
-            if( digits.Length != 10 )
+            if (digits.Length != 10)
                 throw new Exception("The ISBN-10 doesn't contain exactly ten digits");
 
             var digitList = digits
-                .ToArray()
-                .Select(x => x == 'X' ? 10 : int.Parse(x.ToString()));
+                .Select(x => x == 'X' ? 10 : int.Parse(x.ToString()))
+                .ToArray();
 
-            int lastDigit = digitList.Last();
-            int controlSum = digitList.Sum() % 11;
+            int checksum = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                checksum += (i + 1) * digitList[i];
+            }
+            checksum %= 11;
 
-            if(controlSum != lastDigit)
-                throw new Exception("The ISBN-10 checksum failed.");
+            if(checksum != digitList.Last())
+                throw new IsbnFailedChecksumException($"The ISBN-10 checksum failed. Expected {digitList.Last()}, but got {checksum}.");
         }
     }
 }

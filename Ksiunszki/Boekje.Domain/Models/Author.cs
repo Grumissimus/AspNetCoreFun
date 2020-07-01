@@ -8,9 +8,6 @@ namespace Boekje.Domain.Models
     public class Author : Entity
     {
         public string Name { get; private set; }
-
-        public Author()
-        {
-        }
+        public virtual ICollection<Work> Works { get; private set; }
     }
 }

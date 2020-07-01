@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Domain", "Boekje.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Common", "Boekje.Domain.Common\Boekje.Common.csproj", "{C2B7A558-1292-4B0B-B559-41CD33B01024}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boekje.Domain.Tests", "Boekje.Domain.Tests\Boekje.Domain.Tests.csproj", "{53F6DBB4-19DF-42F7-8F01-412E25DC714B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C2B7A558-1292-4B0B-B559-41CD33B01024}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2B7A558-1292-4B0B-B559-41CD33B01024}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2B7A558-1292-4B0B-B559-41CD33B01024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53F6DBB4-19DF-42F7-8F01-412E25DC714B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F6DBB4-19DF-42F7-8F01-412E25DC714B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F6DBB4-19DF-42F7-8F01-412E25DC714B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F6DBB4-19DF-42F7-8F01-412E25DC714B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

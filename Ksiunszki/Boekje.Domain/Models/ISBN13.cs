@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Boekje.Domain.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Boekje.Domain.Models
 {
     public class ISBN13 : ISBN
     {
-        private Regex format = new Regex("^[\\d-]+$");
+        private readonly Regex format = new Regex("^[\\d-]+$");
 
         public ISBN13(string isbn) : base(isbn)
         {
@@ -25,16 +26,33 @@ namespace Boekje.Domain.Models
             var digits = Regex.Replace(value, "-", "");
 
             if (digits.Length != 13)
-                throw new Exception("The ISBN-13 doesn't contain exactly thirteen digits");
+                throw new ArgumentException("The ISBN-13 doesn't contain exactly thirteen digits");
 
             var sum = digits
-                .ToArray()
-                .Select(x => int.Parse(x.ToString()));
+                .Select(x => int.Parse(x.ToString()))
+                .ToArray();
 
-            var checkSum = sum.Where(x => x % 2 != 0).Sum() + sum.Where(x => x % 2 == 0).Select(x => x * 3).Sum();
+            var checkDigit = sum.Last();
+            int checksum = 0;
 
-            if (checkSum % 10 == 0)
-                throw new Exception("The ISBN-13 checksum failed.");
+            for(int i = 0; i < 12; i++)
+            {
+                checksum += (i+1) % 2 != 0 ? sum[i] : sum[i] * 3;
+            }
+            checksum %= 10;
+
+            switch (checksum)
+            {
+                case 0:
+                    if (checksum != checkDigit)
+                        throw new IsbnFailedChecksumException($"The ISBN-13 checksum failed. Expected {checkDigit}, but got {checksum}.");
+                    break;
+                default:
+                    if ((10 - checksum) != checkDigit)
+                        throw new IsbnFailedChecksumException($"The ISBN-13 checksum failed. Expected {checkDigit}, but got {checksum}.");
+                    break;
+            }
+
         }
     }
 }

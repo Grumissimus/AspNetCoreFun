@@ -5,9 +5,11 @@ using System.Text;
 
 namespace Boekje.Domain.Models
 {
-    class Book : Entity
+    public class Book : Entity
     {
         public ISBN ISBN { get; private set; }
         public string Title { get; private set; }
+        public long WorkId { get; private set; }
+        public Work Work { get; private set; }
     }
 }
