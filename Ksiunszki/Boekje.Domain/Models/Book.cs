@@ -9,6 +9,8 @@ namespace Boekje.Domain.Models
     {
         public ISBN ISBN { get; private set; }
         public string Title { get; private set; }
+        public long PublisherId { get; private set; }
+        public Publisher Publisher { get; private set; }
         public long WorkId { get; private set; }
         public Work Work { get; private set; }
     }

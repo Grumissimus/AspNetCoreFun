@@ -11,5 +11,6 @@ namespace Boekje.Domain.Models
         public string Description { get; private set; }
         public short FoundingYear { get; private set; }
         public string Website { get; private set; }
+        public virtual ICollection<Book> Books { get; private set; }
     }
 }
