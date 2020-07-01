@@ -38,7 +38,7 @@ namespace Boekje.Domain.Models
             checksum %= 11;
 
             if(checksum != digitList.Last())
-                throw new IsbnFailedChecksumException($"The ISBN-10 checksum failed. Expected {digitList.Last()}, but got {checksum}.");
+                throw new ISBNFailedChecksumException($"The ISBN-10 checksum failed. Expected {digitList.Last()}, but got {checksum}.");
         }
     }
 }

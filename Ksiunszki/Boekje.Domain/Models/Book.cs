@@ -1,7 +1,6 @@
 ﻿using Boekje.Common.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Boekje.Domain.Models
 {
@@ -9,9 +8,10 @@ namespace Boekje.Domain.Models
     {
         public ISBN ISBN { get; private set; }
         public string Title { get; private set; }
-        public long PublisherId { get; private set; }
         public Publisher Publisher { get; private set; }
-        public long WorkId { get; private set; }
         public Work Work { get; private set; }
+        public short Pages { get; private set; }
+        public virtual ICollection<AuthorBook> AuthorBooks { get; private set; }
+        public List<Author> Authors => AuthorBooks.Select(x => x.Author).ToList();
     }
 }

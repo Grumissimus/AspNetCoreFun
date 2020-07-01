@@ -12,6 +12,9 @@ namespace Boekje.Domain.Models
 
         public ISBN(string isbn)
         {
+            if(isbn == null)
+                throw new ArgumentException("The ISBN cannot be null.");
+
             Validate(isbn);
             Value = isbn;
         }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Boekje.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Boekje.Domain.Models
+namespace Boekje.Domain.Mappers
 {
     public static class ISBNMapper
     {

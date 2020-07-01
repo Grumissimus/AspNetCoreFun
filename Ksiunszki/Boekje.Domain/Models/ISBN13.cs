@@ -45,11 +45,11 @@ namespace Boekje.Domain.Models
             {
                 case 0:
                     if (checksum != checkDigit)
-                        throw new IsbnFailedChecksumException($"The ISBN-13 checksum failed. Expected {checkDigit}, but got {checksum}.");
+                        throw new ISBNFailedChecksumException($"The ISBN-13 checksum failed. Expected {checkDigit}, but got {checksum}.");
                     break;
                 default:
-                    if ((10 - checksum) != checkDigit)
-                        throw new IsbnFailedChecksumException($"The ISBN-13 checksum failed. Expected {checkDigit}, but got {checksum}.");
+                    if (10 - checksum != checkDigit)
+                        throw new ISBNFailedChecksumException($"The ISBN-13 checksum failed. Expected {checkDigit}, but got {checksum}.");
                     break;
             }
 
