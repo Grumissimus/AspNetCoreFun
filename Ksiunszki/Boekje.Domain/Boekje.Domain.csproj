@@ -5,18 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\Commands\**" />
-    <Compile Remove="Models\Events\**" />
-    <Compile Remove="Models\Queries\**" />
-    <EmbeddedResource Remove="Models\Commands\**" />
-    <EmbeddedResource Remove="Models\Events\**" />
-    <EmbeddedResource Remove="Models\Queries\**" />
-    <None Remove="Models\Commands\**" />
-    <None Remove="Models\Events\**" />
-    <None Remove="Models\Queries\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Boekje.Domain.Common\Boekje.Common.csproj" />
   </ItemGroup>
 
