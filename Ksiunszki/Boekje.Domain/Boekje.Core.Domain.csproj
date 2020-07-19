@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Boekje.Core.Domain</RootNamespace>
+    <AssemblyName>Boekje.Core.Domain</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Boekje.Domain.Common\Boekje.Common.csproj" />
+  </ItemGroup>
+
+</Project>

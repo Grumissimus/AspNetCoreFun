@@ -1,11 +1,11 @@
-using Boekje.Domain.Exceptions;
-using Boekje.Domain.Models;
-using Boekje.Domain.Mappers;
+using Boekje.Core.Domain.Exceptions;
+using Boekje.Core.Domain.Models;
+using Boekje.Core.Domain.Mappers;
 using NUnit.Framework;
 using System;
-using Boekje.Domain.Factories;
+using Boekje.Core.Domain.Factories;
 
-namespace Boekje.Domain.Tests
+namespace Boekje.Core.Domain.Tests
 {
     public class ISBNTests
     {

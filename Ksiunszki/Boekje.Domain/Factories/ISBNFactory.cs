@@ -1,11 +1,11 @@
-﻿using Boekje.Domain.Mappers;
-using Boekje.Domain.Models;
+﻿using Boekje.Core.Domain.Mappers;
+using Boekje.Core.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
 
-namespace Boekje.Domain.Factories
+namespace Boekje.Core.Domain.Factories
 {
     public static class ISBNFactory
     {

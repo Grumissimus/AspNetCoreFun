@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Domain", "Boekje.Domain\Boekje.Domain.csproj", "{F44AAA2C-F01B-43C8-ADCC-EE7C3B523DC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Core.Domain", "Boekje.Domain\Boekje.Core.Domain.csproj", "{F44AAA2C-F01B-43C8-ADCC-EE7C3B523DC3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Common", "Boekje.Domain.Common\Boekje.Common.csproj", "{C2B7A558-1292-4B0B-B559-41CD33B01024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boekje.Domain.Tests", "Boekje.Domain.Tests\Boekje.Domain.Tests.csproj", "{53F6DBB4-19DF-42F7-8F01-412E25DC714B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Core.Domain.Tests", "Boekje.Domain.Tests\Boekje.Core.Domain.Tests.csproj", "{53F6DBB4-19DF-42F7-8F01-412E25DC714B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.Auth", "Boekje.Auth\Boekje.Auth.csproj", "{852951EA-5380-441A-A82C-6E02EAD3D93D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boekje.ResourceAPI", "Boekje.ResourceAPI\Boekje.ResourceAPI.csproj", "{779630C5-D605-42CC-9A85-D3123ECE068F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{53F6DBB4-19DF-42F7-8F01-412E25DC714B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53F6DBB4-19DF-42F7-8F01-412E25DC714B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53F6DBB4-19DF-42F7-8F01-412E25DC714B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852951EA-5380-441A-A82C-6E02EAD3D93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852951EA-5380-441A-A82C-6E02EAD3D93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852951EA-5380-441A-A82C-6E02EAD3D93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852951EA-5380-441A-A82C-6E02EAD3D93D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779630C5-D605-42CC-9A85-D3123ECE068F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779630C5-D605-42CC-9A85-D3123ECE068F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779630C5-D605-42CC-9A85-D3123ECE068F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779630C5-D605-42CC-9A85-D3123ECE068F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

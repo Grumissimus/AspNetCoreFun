@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Boekje.Domain.Models
+namespace Boekje.Core.Domain.Models
 {
     public abstract class ISBN : ValueObject
     {

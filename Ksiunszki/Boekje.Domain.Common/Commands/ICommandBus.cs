@@ -1,9 +1,10 @@
 ﻿using Boekje.Common.Results;
+using System.Threading.Tasks;
 
 namespace Boekje.Common.Commands
 {
     public interface ICommandBus
     {
-        IResult Send<T>(T command) where T : ICommand;
+        Task<IResult> Send<T>(T command) where T : ICommand;
     }
 }

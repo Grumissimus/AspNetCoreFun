@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Boekje.Domain.Models
+namespace Boekje.Core.Domain.Models
 {
     public class Work : Entity
     {

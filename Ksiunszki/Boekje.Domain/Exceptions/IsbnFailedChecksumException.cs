@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Boekje.Domain.Exceptions
+namespace Boekje.Core.Domain.Exceptions
 {
     public class ISBNFailedChecksumException : ArgumentException
     {

@@ -1,4 +1,5 @@
 ﻿using Boekje.Common.Results;
+using System.Threading.Tasks;
 
 namespace Boekje.Common.Queries
 {
@@ -8,6 +9,6 @@ namespace Boekje.Common.Queries
 
     public interface IQueryHandler<in TQuery, TResult> where TQuery : IQuery<TResult>
     {
-        IResult<TResult> Execute(TQuery query);
+        Task<IResult<TResult>> Execute(TQuery query);
     }
 }

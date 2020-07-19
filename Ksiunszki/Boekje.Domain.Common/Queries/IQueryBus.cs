@@ -1,9 +1,10 @@
 ﻿using Boekje.Common.Results;
+using System.Threading.Tasks;
 
 namespace Boekje.Common.Queries
 {
     public interface IQueryBus
     {
-        IResult<TResult> Send<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>;
+        Task<IResult<TResult>> Send<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>;
     }
 }

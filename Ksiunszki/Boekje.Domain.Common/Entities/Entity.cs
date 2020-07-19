@@ -18,7 +18,7 @@ namespace Boekje.Common.Entities
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("The identifier cannot be a negative number");
+                    throw new ArgumentException("The identifier cannot be a negative number.");
                 }
 
                 _id = value;

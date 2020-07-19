@@ -1,11 +1,9 @@
-﻿using Boekje.Domain.Exceptions;
+﻿using Boekje.Core.Domain.Exceptions;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Boekje.Domain.Models
+namespace Boekje.Core.Domain.Models
 {
     public class ISBN13 : ISBN
     {
