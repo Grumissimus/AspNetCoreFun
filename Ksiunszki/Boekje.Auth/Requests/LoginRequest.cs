@@ -8,10 +8,12 @@ namespace Boekje.Auth.Requests
 {
     public class LoginRequest
     {
-        [Required]
-        public string Username { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "The email address is required to log in")]
+        [Display(Name = "E-Mail Address")]
+        public string Email { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "The password is required to log in")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
     }
 }

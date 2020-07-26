@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Boekje.Auth.Config;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Boekje.Auth
 {
@@ -41,6 +42,18 @@ namespace Boekje.Auth
                 .AddDeveloperSigningCredential();
 
             services.AddControllers();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.Authority = "https://localhost:5001";
+                options.Audience = "BoekjeResource";
+                options.RequireHttpsMetadata = false;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -49,6 +62,7 @@ namespace Boekje.Auth
 
             app.UseRouting();
             app.UseIdentityServer();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }

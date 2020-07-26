@@ -8,6 +8,5 @@ namespace Boekje.Auth.Models
 {
     public class Role : IdentityRole
     {
-
     }
 }
