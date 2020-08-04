@@ -16,7 +16,7 @@ namespace Boekje.Auth.Config
                     ClientId = "angular_spa",
                     ClientName = "Angular SPA",
                     AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowedScopes = { "api.read", "api.write" },
+                    AllowedScopes = { "BoekjeResource" },
                     RedirectUris = { "http://localhost:4200/auth-callback" },
                     PostLogoutRedirectUris = { "http://localhost:4200/" },
                     AllowedCorsOrigins = { "http://localhost:4200" },

@@ -38,6 +38,7 @@ namespace Boekje.Auth
                 .AddInMemoryIdentityResources(Config.Resources.GetIdentityResources())
                 .AddInMemoryApiResources(Config.Resources.GetApiResources())
                 .AddInMemoryApiScopes(Config.Resources.GetApiScopes())
+                .AddAspNetIdentity<User>()
                 .AddTestUsers(new List<TestUser>())
                 .AddDeveloperSigningCredential();
 
@@ -54,6 +55,7 @@ namespace Boekje.Auth
                 options.Audience = "BoekjeResource";
                 options.RequireHttpsMetadata = false;
             });
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -63,6 +65,7 @@ namespace Boekje.Auth
             app.UseRouting();
             app.UseIdentityServer();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }

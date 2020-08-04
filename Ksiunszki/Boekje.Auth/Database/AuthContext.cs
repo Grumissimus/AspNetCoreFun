@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Boekje.Auth.Database
 {
-    public class AuthContext : IdentityDbContext<User>
+    public class AuthContext : IdentityDbContext<User, Role, string>
     {
         public AuthContext(DbContextOptions<AuthContext> options) : base(options) { }
+
     }
 }
