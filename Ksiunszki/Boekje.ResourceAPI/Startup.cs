@@ -28,6 +28,7 @@ namespace Boekje.ResourceAPI
                 .AddJwtBearer("Bearer", config => {
                     config.Authority = "https://localhost:5001";
                     config.Audience = "BoekjeResource";
+                    config.RequireHttpsMetadata = false;
                 }
             );
             services.AddControllers();

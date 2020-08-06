@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,6 +23,10 @@ namespace Boekje.Auth.Models
                 if (result.Succeeded)
                 {
                     await userManager.AddToRoleAsync(root, Roles.Admin);
+                    await userManager.AddClaimAsync(root, new Claim("userName", root.UserName));
+                    await userManager.AddClaimAsync(root, new Claim("email", root.Email));
+                    await userManager.AddClaimAsync(root, new Claim("role", Roles.Admin));
+                    Console.WriteLine("Root user created.");
                 }
             }
         }

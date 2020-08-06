@@ -19,6 +19,13 @@ namespace Boekje.Auth.Controllers
             _roleManager = roleManager ?? throw new ArgumentNullException(nameof(roleManager));
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Get()
+        {
+            return Ok("Hello from secret");
+        }
+
         [HttpPost("create/{name}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(string name)

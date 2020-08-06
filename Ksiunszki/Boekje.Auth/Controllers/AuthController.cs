@@ -24,45 +24,13 @@ namespace Boekje.Auth.Controllers
     [Route("auth")]
     public class AuthController : Controller
     {
-        private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<Role> _roleManager;
-        private readonly IIdentityServerInteractionService _interaction;
-        private readonly IAuthenticationSchemeProvider _schemeProvider;
-        private readonly IClientStore _clientStore;
-        private readonly IEventService _events;
-        private readonly IConfiguration _config;
 
-        public AuthController(IConfiguration configuration,
-            SignInManager<User> signInManager, 
-            UserManager<User> userManager, 
-            RoleManager<Role> roleManager,
-            IIdentityServerInteractionService interaction, 
-            IAuthenticationSchemeProvider schemeProvider, 
-            IClientStore clientStore, 
-            IEventService events)
+        public AuthController(UserManager<User> userManager, RoleManager<Role> roleManager)
         {
-            _config = configuration;
-            _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
             _roleManager = roleManager ?? throw new ArgumentNullException(nameof(roleManager));
-            _interaction = interaction ?? throw new ArgumentNullException(nameof(interaction));
-            _schemeProvider = schemeProvider ?? throw new ArgumentNullException(nameof(schemeProvider));
-            _clientStore = clientStore ?? throw new ArgumentNullException(nameof(clientStore));
-            _events = events ?? throw new ArgumentNullException(nameof(events));
-        }
-
-        [HttpPost("login")]
-        [AllowAnonymous]
-        public async Task<IActionResult> Login([FromBody]LoginRequest loginReq)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            User user = await _userManager.FindByEmailAsync(loginReq.Email);
-            var validCredentials = await _userManager.CheckPasswordAsync(user, loginReq.Password);
-
-            return Ok(validCredentials ? user : null);
         }
 
         [HttpPost("register")]
